@@ -2,7 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { RoleTypeEnum } from '../enums/role-type.enum';
 import { Address, AddressSchema } from './address.schema';
 import { PaymentMethodEnum } from '../enums/payment-method.enum';
-import { HydratedDocument } from 'mongoose';
+import { HydratedDocument, Types } from 'mongoose';
 
 @Schema()
 export class User {
@@ -21,11 +21,11 @@ export class User {
   @Prop({ type: String, required: true })
   password: string;
 
-  @Prop({ type: String, required: true, enum: Object.values(RoleTypeEnum) })
-  role: RoleTypeEnum;
-
   @Prop({ type: Date })
   criticalChangeAt?: Date;
+
+  @Prop({ type: String, required: true, enum: Object.values(RoleTypeEnum) })
+  role: RoleTypeEnum;
 
   @Prop({ type: AddressSchema })
   address?: Address;
@@ -42,7 +42,6 @@ export class User {
   @Prop({ type: String })
   bio?: string;
 
-  // @Prop({ type: Types.ObjectId, ref: 'Image', autopopulate: true })
   @Prop({ type: String })
   avatar: string;
 
@@ -56,7 +55,8 @@ export class User {
   @Prop({ Type: Number, default: 0 })
   walletBalance: number;
 
-  // services: Type.id[];
+  @Prop({ type: [Types.ObjectId], ref: 'Category' })
+  services?: Types.ObjectId[];
 }
 
 export type UserDocument = HydratedDocument<User>;
