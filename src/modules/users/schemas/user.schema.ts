@@ -2,6 +2,7 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { RoleTypeEnum } from '../enums/role-type.enum';
 import { Address, AddressSchema } from './address.schema';
 import { PaymentMethodEnum } from '../enums/payment-method.enum';
+import { HydratedDocument } from 'mongoose';
 
 @Schema()
 export class User {
@@ -58,4 +59,5 @@ export class User {
   // services: Type.id[];
 }
 
+export type UserDocument = HydratedDocument<User>;
 export const UserSchema = SchemaFactory.createForClass(User);
