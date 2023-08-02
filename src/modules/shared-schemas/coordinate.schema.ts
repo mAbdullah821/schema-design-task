@@ -1,5 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { PointEnum } from '../enums/point.enum';
+import { PointEnum } from '../shared-enums/point.enum';
 
 @Schema({ _id: false })
 export class Coordinate {

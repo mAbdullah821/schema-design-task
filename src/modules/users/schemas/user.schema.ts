@@ -1,7 +1,10 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { RoleTypeEnum } from '../enums/role-type.enum';
-import { Address, AddressSchema } from './address.schema';
-import { PaymentMethodEnum } from '../enums/payment-method.enum';
+import {
+  Address,
+  AddressSchema,
+} from 'src/modules/shared-schemas/address.schema';
+import { PaymentMethodEnum } from 'src/modules/shared-enums/payment-method.enum';
 import { HydratedDocument, Types } from 'mongoose';
 
 @Schema()

@@ -1,6 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Types } from 'mongoose';
-import { Size, SizeSchema } from 'src/modules/shared-schemas/size.schema';
 
 @Schema()
 export class HomeService {
