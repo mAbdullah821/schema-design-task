@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument, Types } from 'mongoose';
-import { TransferMoneyStatus } from '../enums/transfer-money-status.enum';
+import { TransferMoneyStatusEnum } from '../enums/transfer-money-status.enum';
 
 @Schema({ timestamps: true })
 export class TransferMoney {
@@ -15,10 +15,10 @@ export class TransferMoney {
 
   @Prop({
     type: String,
-    enum: Object.values(TransferMoneyStatus),
-    default: TransferMoneyStatus.Pending,
+    enum: Object.values(TransferMoneyStatusEnum),
+    default: TransferMoneyStatusEnum.Pending,
   })
-  status: TransferMoneyStatus;
+  status: TransferMoneyStatusEnum;
 }
 
 export type TransferMoneyDocument = HydratedDocument<TransferMoney>;
